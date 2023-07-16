@@ -1,0 +1,41 @@
+.menus{
+    flex:4;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin-right: 0px;
+  }
+  .menus h1{
+    font-size: 20px;
+    color: #555;
+  }
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.posts img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.posts h2{
+    color:#555 ;
+}
+.menu-btn{
+    width: max-content;
+    padding: 7.5px 15px;
+    border: none;
+    cursor: pointer;
+    color: teal;
+    background-color: white;
+    border: 1px solid teal;
+    border-radius: 5px;
+    margin: 10px;
+}
+.menu-btn:hover{
+    border: 1px solid white;
+    background-color: lightseagreen;
+    color: black;
+}
+

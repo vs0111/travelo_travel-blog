@@ -1,0 +1,40 @@
+.user-comment{
+    margin-top: -15px;
+    /* margin-left: 50%; */
+}
+.delete{
+    margin-left: 600px;
+    margin-top: -70px;
+    color: rgb(151, 147, 147);
+    cursor: pointer;
+}
+.msg{
+    margin-bottom: 10px;
+}
+.btn-info{
+    margin-right: 90px;
+  
+}
+.icons{
+    margin:20px 10px 10px -40px;
+    cursor: pointer;
+}
+.repaly{
+    border: none;
+    background:#2cb82e ;
+    /* color: white; */
+    /* border-radius: 10px; */
+}
+.replay-user{
+    margin-left:100px;
+    margin-top: 20px;
+
+}
+.user-replay{
+    margin-top: -15px;
+
+
+}
+.replay{
+    margin-bottom: -10px;
+}

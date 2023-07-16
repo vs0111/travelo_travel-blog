@@ -1,0 +1,25 @@
+.drop{
+    position: absolute;
+    top: 4.5rem;
+    right:1rem;
+    width:150px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid gray;
+    line-height: 40px;
+    
+
+}
+.drop::before{
+    content: '';
+    position: absolute;
+    top: -0.7rem;
+    right: 4rem;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    transform: rotate(45deg);
+    background-color: white;
+    border-left: 1px solid gray;
+    border-top: 1px solid gray;
+}

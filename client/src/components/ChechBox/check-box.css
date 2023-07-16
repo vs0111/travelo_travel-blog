@@ -1,0 +1,15 @@
+.check-box{
+    margin-bottom: 10px;
+    margin-left: 15px;
+
+}
+.input{
+ font-size:100px;
+ transform:scale(1.2) ;
+}
+.label{
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 18px;
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+}

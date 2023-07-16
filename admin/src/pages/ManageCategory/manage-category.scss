@@ -1,0 +1,18 @@
+.list {
+    display: flex;
+    width: 100%;
+    .listContainer {
+      flex: 6;
+    }
+    .add-button{
+        margin: 20px;
+        background-color: #127d4f;
+        color: white;
+        margin-left: 80%;
+    
+        &:hover {
+          background-color: #127d4f; /* Disable pointer events on hover */
+        }
+    }
+  }
+  
