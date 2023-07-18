@@ -10,7 +10,7 @@ const userController = {
         return res.status(400).send({ message: error.details[0].message });
 
       const user = await User.findOne({ email: req.body.email });
-      console.log("No V Problem");
+      
       if (user)
         return res
           .status(409)
@@ -80,7 +80,7 @@ const userController = {
   getUsers: async (req, res) => {
     try {
       // Retrieve all user details from the database
-      const users = await User.find();
+      const users = await User.find({});
 
       // Return the user details
       res.json(users);

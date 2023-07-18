@@ -24,7 +24,7 @@ const BlogSchema = new mongoose.Schema({
   },
   views:{
     type:Array,
-    require:false,
+    required:false,
   },
   likes:{
     type:Array,

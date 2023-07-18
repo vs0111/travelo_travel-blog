@@ -29,7 +29,7 @@ function Signup() {
       .then((response) => {
         console.log(response.data);
 
-        toast.success("Successfully Signed");
+        toast.success("Login was successful!");
         setTimeout(() => {
           navigate("/login");
         }, 2000);
