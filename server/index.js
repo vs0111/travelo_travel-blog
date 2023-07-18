@@ -9,6 +9,9 @@ const messageRouter=require('./routes/messages')
 const connection = require("./db");
 const socket = require("socket.io");
 const app=express()
+app.get('/',(req,res)=>{
+  res.send("working fineeeeeeeeee")
+})
 dotenv.config()
 connection()
 // middleware
