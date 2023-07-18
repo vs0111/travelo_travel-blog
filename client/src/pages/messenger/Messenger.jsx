@@ -21,7 +21,7 @@ function Messenger() {
   const authorId = useParams();
 
   useEffect(() => {
-    socket.current = io("http://localhost:8080");
+    socket.current = io("https://travelo.fun/");
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
