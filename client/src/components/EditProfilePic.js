@@ -2,20 +2,23 @@ import React, { useState, useRef } from "react";
 import { Button, Form, Card } from "react-bootstrap";
 import firebaseApp from "../FireBase/config";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import axios from "../utils/axios";
 import { useNavigate } from "react-router-dom";
+import { setPosts } from "../Redux/store";
+
+
 
 const storage = getStorage(firebaseApp);
 
-function EditProfilePic() {
+function EditProfilePic({setShows}) {
   const [img, setImg] = useState();
   const locaRef = useRef();
   const user = useSelector((state) => state.user);
   const userName = user.name;
-  const userId = user._id;
-  const navigate=useNavigate()
-  console.log()
+  const userId = user?._id;
+  const dispatch=useDispatch()
+  
 
   const handleUpload = async () => {
     if (!img) return null; // Return null if file is empty
@@ -47,10 +50,13 @@ function EditProfilePic() {
       try {
         const res=await axios.post("/addMedia", mediaDetails);
         console.log(res.data);
+        dispatch(setPosts({posts:res.data.images}))
+        setShows(false)
+        // navigate(".", { replace: true }); 
+
       } catch (error) {
         console.log(error);
       }
-      window.location.reload()
     }
   };
 

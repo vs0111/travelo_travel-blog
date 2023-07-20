@@ -224,7 +224,7 @@ const blogController = {
 
   getOneBlog: async (req, res) => {
     const blogId = req.params.id; // Assuming the blog ID is passed as a route parameter
-    console.log(blogId);
+    // console.log(blogId);
 
     try {
       const blog = await Blog.findById(blogId); // Search for the blog by ID in the database
@@ -289,6 +289,8 @@ const blogController = {
   },
 
   addMedia: async (req, res) => {
+    console.log("LLLLLLLLLLL");
+
     try {
       // Extract the image details from req.body
       const { location, photo, userName, userId } = req.body;
@@ -303,9 +305,11 @@ const blogController = {
 
       // Save the new image to the database
       await newImage.save();
+      const images=await Media.find({}).sort({createdAt:-1})
+      //  console.log(image);
 
       // Respond with a success message
-      res.status(200).json({ message: "Image details added successfully" });
+      res.status(200).json({ message: "Image details added successfully",images});
     } catch (error) {
       // Handle any errors that occur during the process
       console.error(error);
@@ -345,7 +349,7 @@ const blogController = {
             userPic: "$user.photo",
           },
         },
-      ]);
+      ]).sort({createdAt:-1})
       console.log(photos);
       return res.json(photos);
     } catch (error) {
@@ -542,7 +546,7 @@ const blogController = {
   },
 
   reportblog: async (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
 
     const { blogID, userId, reasons } = req.body;
     try {
@@ -1024,7 +1028,7 @@ const blogController = {
             userPic: "$user.photo",
           },
         },
-      ]);
+      ]).sort({createdAt:-1})
 
       // Return the remaining posts as the response
       return res.json(existingPost);

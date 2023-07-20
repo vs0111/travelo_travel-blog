@@ -69,7 +69,7 @@ const Category = () => {
               <TableRow>
                 <TableCell className="tableCell">Roll No.</TableCell>
                 <TableCell className="tableCell">Category Name</TableCell>
-                <TableCell className="tableCell">Total Blogs</TableCell>
+                {/* <TableCell className="tableCell">Total Blogs</TableCell> */}
                 <TableCell className="tableCell">EDIT</TableCell>
 
                 <TableCell className="tableCell">DELETE</TableCell>
@@ -82,7 +82,7 @@ const Category = () => {
                   <TableCell className="tableCell">
                     <div className="cellWrapper">{data.category}</div>
                   </TableCell>
-                  <TableCell className="tableCell">grthgtr</TableCell>
+                  {/* <TableCell className="tableCell">grthgtr</TableCell> */}
 
                   <TableCell className="tableCell">
                    <Link to={`/editCategory/${data._id}`}> <Button style={{ background: "#11cdef", color: "#ffff" }}>

@@ -31,12 +31,12 @@ const DashTable = ({ blog }) => {
         Swal.fire("Deleted!", "Your file has been Deleted.", "success");
         const res = await axios.delete(`/deleteBlog/${blogId}`);
 
-        if(res.status===200){
-          setTimeout(() => {
-            window.location.reload() ;
+        // if(res.status===200){
+        //   setTimeout(() => {
+        //     window.location.reload() ;
             
-          }, 2000);
-        }
+        //   }, 2000);
+        // }
 
         console.log(res.data);
       }

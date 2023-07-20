@@ -37,7 +37,7 @@ function SinglePost() {
   const [show, setShow] = useState(false);
   const [author, setAuthor] = useState(false);
   const [showCommentBox, setShowCommentBox] = useState(false);
-  const [commentCount,setCommentCount]=useState("")
+  const [commentCount, setCommentCount] = useState("");
   const blogId = useParams();
   const blogID = blogId.id;
   const userId = useSelector((state) => state.user._id);
@@ -51,14 +51,12 @@ function SinglePost() {
       setBlog(response.data);
       setAuthorId(response.data.userId);
     });
-      axios.get(`/getViewCount/${blogId.id}`).then((response) => {
-        setViewCont(response.data.viewsCount);
-      });
-        axios.get(`/getLikeCount/${blogId.id}`).then((response) => {
-          setLike(response.data.likeCount);
-        });
-       
-  
+    axios.get(`/getViewCount/${blogId.id}`).then((response) => {
+      setViewCont(response.data.viewsCount);
+    });
+    axios.get(`/getLikeCount/${blogId.id}`).then((response) => {
+      setLike(response.data.likeCount);
+    });
 
     timeOutRef.current = setTimeout(() => {
       setView();
@@ -86,16 +84,16 @@ function SinglePost() {
   }, [blog]);
 
   useEffect(() => {
-    const getCommentCount = async()=>{
+    const getCommentCount = async () => {
       try {
-        const res=await axios.get(`/getCommentCount/${blogID}`)
-        setCommentCount(res.data)
-        console.log(res.data)
+        const res = await axios.get(`/getCommentCount/${blogID}`);
+        setCommentCount(res.data);
+        console.log(res.data);
       } catch (error) {
         console.log(error);
       }
-    }
-    getCommentCount()
+    };
+    getCommentCount();
   }, []);
 
   useEffect(() => {
@@ -137,9 +135,9 @@ function SinglePost() {
   }
 
   const formattedDateTime = formatDateTime(blog.createdAt);
-  const setShowFun = (value)=>{
+  const setShowFun = (value) => {
     setShow(value);
-  }
+  };
 
   return (
     <Container>
@@ -217,38 +215,47 @@ function SinglePost() {
             ></div>
           </p>
           <hr />
-          <div style={{marginTop:"-30px"}} >
-          <img onClick={handleLike}
-                  className="likeIcon"
-                  style={{
-                    width: "24px",
-                    height: "24px",
-                    marginRight: "5px",
-                    cursor: "pointer",
-                    
-
-                  }}
-                  src={likes}
-                  alt=""
-                />
-                <img
-                onClick={handleLike}
-                  className="likeIcon"
-                  style={{
-                    width: "24px",
-                    height: "24px",
-                    marginRight: "5px",
-                    cursor: "pointer",
-                    
-                  }}
-                  src={heart}
-                  alt=""
-                />{like}
-             <span style={{marginLeft:"20px",fontSize:"21px",marginTop:"-12px"}}><i class="ri-message-2-fill" onClick={()=>setShowCommentBox(!showCommentBox)}></i></span> {commentCount}
+          <div style={{ marginTop: "-30px" }}>
+            <img
+              onClick={handleLike}
+              className="likeIcon"
+              style={{
+                width: "24px",
+                height: "24px",
+                marginRight: "5px",
+                cursor: "pointer",
+              }}
+              src={likes}
+              alt=""
+            />
+            <img
+              onClick={handleLike}
+              className="likeIcon"
+              style={{
+                width: "24px",
+                height: "24px",
+                marginRight: "5px",
+                cursor: "pointer",
+              }}
+              src={heart}
+              alt=""
+            />
+            {like}
+            <span
+              style={{
+                marginLeft: "20px",
+                fontSize: "21px",
+                marginTop: "-12px",
+              }}
+            >
+              <i
+                class="ri-message-2-fill"
+                onClick={() => setShowCommentBox(!showCommentBox)}
+              ></i>
+            </span>{" "}
+            {commentCount}
           </div>
-          {
-            showCommentBox && <Comment blogID={blogID}/>
-          }
+          {showCommentBox && <Comment blogID={blogID} />}
         </div>
         <Menu menuBlog={menuBlog} />
       </div>
@@ -259,7 +266,7 @@ function SinglePost() {
           </ModalTitle>
         </ModalHeader>
         <ModalBody>
-          <CheckBox blogID={blogID} setShowFun={setShowFun}  />
+          <CheckBox blogID={blogID} setShowFun={setShowFun} />
         </ModalBody>
         <ModalFooter>
           <Button variant="secondary" onClick={() => setShow(false)}>

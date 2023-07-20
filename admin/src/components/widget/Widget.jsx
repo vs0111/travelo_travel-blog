@@ -54,7 +54,7 @@ const Widget = ({ type,count }) => {
       data = {
         title: "BLOGS",
         isMoney: true,
-        link: <Link style={{textDecoration:"none"}} to='/home'>View Blogs</Link>,
+        link:"Blogs",
         icon: (
           <MonetizationOnOutlinedIcon
             className="icon"

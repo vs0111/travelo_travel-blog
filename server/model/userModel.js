@@ -9,13 +9,12 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true },
   phone: { type: String, required: true },
   password: { type: String, required: true },
-  likes:{type:Array,required:false},
-  author:{type:Boolean,required: false},
-  block:{type:Boolean,required: false},
-  photo:{type:String,required:false},
-  blogs:{type:Array,required:false},
-  support:{type:Array,required:false}
-
+  likes: { type: Array, required: false },
+  author: { type: Boolean, required: false },
+  block: { type: Boolean, required: false },
+  photo: { type: String, required: false },
+  blogs: { type: Array, required: false },
+  support: { type: Array, required: false },
 });
 
 userSchema.methods.generateAuthToken = function () {
@@ -53,4 +52,4 @@ const validateLogin = (data) => {
   return schema.validate(data);
 };
 
-module.exports = { User, validate, validateLogin} ;
+module.exports = { User, validate, validateLogin };

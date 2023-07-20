@@ -87,18 +87,18 @@ function SideBar() {
               </Link>
               </span>
           </li>
-          <li>
+          {/* <li>
             <CastIcon className="icon" />
             <span>ADD Management</span>
-          </li>
+          </li> */}
           <li onClick={logout}>
             <LogoutIcon className="icon" />
             <span>Logout</span>
           </li>
-          <li>
+          {/* <li>
             <SettingsIcon className="icon" />
             <span>Settings</span>
-          </li>
+          </li> */}
         </ul>
 
       </div>

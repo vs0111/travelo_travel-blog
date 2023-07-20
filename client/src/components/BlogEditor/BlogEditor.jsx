@@ -80,8 +80,8 @@ function App() {
       return false;
     }
 
-    if (content.length<=500) {
-      toast.error("Content should be less than or equal to 500 characters");
+    if (content.length<=5000) {
+      toast.error("Content should be less than or equal to 5000 characters");
       setError("ERROR")
       return false;
     }

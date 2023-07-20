@@ -16,11 +16,14 @@ import {
     ModalBody,
     ModalFooter
   } from "react-bootstrap";
+import { SliderValueLabel } from "@mui/material";
 
 export default function Share() {
     const [fileShow,setFileShow]=useState(false)
 
-    
+    const setShows = (value) =>{
+      setFileShow(value)
+    }
 
           
 
@@ -48,7 +51,7 @@ export default function Share() {
           <ModalTitle>EDIT PROFILE</ModalTitle>
         </ModalHeader>
         <ModalBody>
-          <EditProfilePic />
+          <EditProfilePic setShows={setShows} />
         </ModalBody>
         <ModalFooter>
           <Button variant="secondary" onClick={()=>setFileShow(false)}>

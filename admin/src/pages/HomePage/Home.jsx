@@ -5,6 +5,7 @@ import NavBar from '../../components/navBar/NavBar'
 import Widget from '../../components/widget/Widget'
 import UserTable from '../../components/UserTable/UserTable'
 import axios from "../../utils/axios";
+import PopularAuthor from '../../components/PopularAuthor/PopularAuthor'
 
 
 function Home() {
@@ -31,8 +32,9 @@ function Home() {
           <Widget type="blogs"   count={dashBoardCount.blogCount}/>
           <Widget type="reports"  count={dashBoardCount.reportCount} />
            </div>
-
-        <div><UserTable/></div>
+          <h2 style={{margin:"20px"}}> <b> POPULAR AUTHORS</b></h2>
+          <hr />
+        <div><PopularAuthor/></div>
   
         </div>
       </div>
