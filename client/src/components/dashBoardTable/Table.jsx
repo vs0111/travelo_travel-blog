@@ -13,10 +13,13 @@ import { format } from "timeago.js";
 import Swal from "sweetalert2";
 import axios from "../../utils/axios";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const DashTable = ({ blog }) => {
+const DashTable = ({ blog,childSetBlog }) => {
   // console.log(blog);
   const navigate = useNavigate();
+  const userId=useSelector((state)=>state.user._id)
+
   const handlDelete = (blogId) => {
     Swal.fire({
       title: "Are you sure?",
@@ -29,19 +32,16 @@ const DashTable = ({ blog }) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been Deleted.", "success");
-        const res = await axios.delete(`/deleteBlog/${blogId}`);
-
-        // if(res.status===200){
-        //   setTimeout(() => {
-        //     window.location.reload() ;
-            
-        //   }, 2000);
-        // }
-
+        const res = await axios.delete(`/deleteBlog/${blogId}/${userId}`);
         console.log(res.data);
+        if(res.data.existingBlog)
+        childSetBlog(res.data.existingBlog)
+        
       }
     });
   };
+      
+
 
   return (
     <TableContainer component={Paper} className="table mt-1">

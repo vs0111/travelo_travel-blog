@@ -22,7 +22,7 @@ export default function Dashboard() {
   const user = useSelector((state) => state.user);
   const [show, setShow] = useState(false);
   const [fileShow,setFileShow]=useState(false)
-  const [blog,setBlog]=useState()
+  const [blog,setBlog]=useState([])
 
   const userId=user._id
 
@@ -47,6 +47,10 @@ export default function Dashboard() {
          setBlog(response.data);
        });
   }, [])
+
+  const childSetBlog =(blog)=>{
+    setBlog(blog)
+  }
 
  
 
@@ -82,7 +86,7 @@ export default function Dashboard() {
           {/* <Col lg="9"> */}
 
            <div className="mt-2 mb-5">
-           <DashTable blog={blog} />
+           <DashTable blog={blog} childSetBlog={childSetBlog} />
            </div>
             {/* <Card className="mb-4">
               <Card.Body>

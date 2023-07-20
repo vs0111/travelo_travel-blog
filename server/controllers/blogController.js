@@ -275,12 +275,14 @@ const blogController = {
   },
 
   deleteBlog: async (req, res) => {
-    const blogId = req.params.id;
+    const blogId = req.params.blogId;
+    const userId=req.params.userId
+    console.log(blogId,userId);
     try {
       // Delete the blog from the database using the blogId
       await Blog.findByIdAndDelete(blogId);
-
-      res.status(200).json({ message: "Blog deleted successfully" });
+      const existingBlog=await Blog.find({userId})
+      res.status(200).json({ message: "Blog deleted successfully",existingBlog });
     } catch (error) {
       res
         .status(500)
