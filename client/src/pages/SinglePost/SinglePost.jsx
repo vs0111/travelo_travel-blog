@@ -9,6 +9,7 @@ import axios from "../../utils/axios";
 import { useSelector } from "react-redux";
 import heart from "../../assets/images/heart.png";
 import likes from "../../assets/images/like.png";
+import { useNavigate } from "react-router-dom";
 
 import {
   Row,
@@ -38,6 +39,7 @@ function SinglePost() {
   const [author, setAuthor] = useState(false);
   const [showCommentBox, setShowCommentBox] = useState(false);
   const [commentCount, setCommentCount] = useState("");
+  const navigate=useNavigate()
   const blogId = useParams();
   const blogID = blogId.id;
   const userId = useSelector((state) => state.user._id);
@@ -138,25 +140,33 @@ function SinglePost() {
   const setShowFun = (value) => {
     setShow(value);
   };
+  const handleBlogClick = (blogId) => {
+    axios.get(`/getSingleBlog/${blogId}`).then((response) => {
+      setBlog(response.data);
+      setAuthorId(response.data.userId);
+      navigate(`/singlePost/${blogId}`);
+
+    });
+  };
 
   return (
     <Container>
       <div className="single">
         <div className="content">
-          <img src={blog.photo} alt="" />
+          <img src={blog?.photo} alt="" />
           <div className="user">
-            {author.photo ? (
-              <img src={author.photo} alt="" />
+            {author?.photo ? (
+              <img src={author?.photo} alt="" />
             ) : (
               <img src={user} alt="" />
             )}
             <div className="info">
-              {userId === blog.userId ? (
-                <span>{blog.userName}</span>
+              {userId === blog?.userId ? (
+                <span>{blog?.userName}</span>
               ) : (
                 <span className="userName">
                   <Link
-                    to={`/author/${blog.userId}`}
+                    to={`/author/${blog?.userId}`}
                     style={{
                       textDecoration: "none",
                       color: "black",
@@ -164,7 +174,7 @@ function SinglePost() {
                     }}
                   >
                     {" "}
-                    {blog.userName}
+                    {blog?.userName}
                   </Link>
                 </span>
               )}
@@ -206,11 +216,11 @@ function SinglePost() {
               <p>{formattedDateTime}</p>
             </div>
           </div>
-          <h1>{blog.title}</h1>
+          <h1>{blog?.title}</h1>
           <p>
             <div
               dangerouslySetInnerHTML={{
-                __html: blog.content,
+                __html: blog?.content,
               }}
             ></div>
           </p>
@@ -257,7 +267,7 @@ function SinglePost() {
           </div>
           {showCommentBox && <Comment blogID={blogID} />}
         </div>
-        <Menu menuBlog={menuBlog} />
+        <Menu menuBlog={menuBlog} handleBlogClick={handleBlogClick} />
       </div>
       <Modal show={show}>
         <ModalHeader>

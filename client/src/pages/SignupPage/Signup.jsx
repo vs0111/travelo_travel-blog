@@ -108,7 +108,7 @@ function Signup() {
                   </Button>
                 </Form>
                 <p>
-                  Already have an account? <Link to="/login">Login</Link>
+                  Already have an account? <Link to="/login">Create</Link>
                 </p>
               </div>
             </div>

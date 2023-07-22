@@ -12,8 +12,6 @@ import NewsLetter from "../../shared/NewsLetter/NewsLetter";
 import LatestBlog from "../../components/LatestBlog/LatestBlog";
 
 function Home() {
-
-
   return (
     <>
       <section>
@@ -63,18 +61,16 @@ function Home() {
               <Subtitle sub={"Explore"} />
             </Col>
           </Row>
-          </Container>
+        </Container>
 
-          <div className="latest gap-2">
+        <div className="latest gap-2">
           <Container>
             <Row>
-            <LatestBlog/>
+              <LatestBlog />
+             
             </Row>
           </Container>
-            
-          </div>
-
-          
+        </div>
       </section>
       <section>
         <Container>
@@ -84,7 +80,7 @@ function Home() {
               <h2 className="testimonial__title">Popular Authors</h2>
             </Col>
             {/* <Col lg="12"> */}
-              <Testimonial />
+            <Testimonial />
             {/* </Col> */}
           </Row>
         </Container>

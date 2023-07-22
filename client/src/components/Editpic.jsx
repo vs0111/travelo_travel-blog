@@ -11,7 +11,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 const storage = getStorage(firebaseApp);
 
-function EditPic() {
+function EditPic({handleEditProfilePic}) {
   const [file, setFile] = useState();
   const locaRef = useRef();
   const user = useSelector((state) => state.user);
@@ -44,7 +44,7 @@ function EditPic() {
           dispatch(setUser({ user: res.data }));
           toast.success("Profile Updated Successfully");
         setTimeout(() => {
-         window.location.reload()
+          handleEditProfilePic(false)
         }, 0);
 
         }

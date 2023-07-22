@@ -6,6 +6,7 @@ import DashTable from "./dashBoardTable/Table";
 import Fallback from "./FallBack";
 
 function FullBlog({ query,selectedCategory }) {
+  
   console.log(query);
   const [blogs, setBlogs] = useState([]);
 

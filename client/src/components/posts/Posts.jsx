@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 import { ColorRing } from "react-loader-spinner";
 
 export default function Post() {
-  const [media, SetMedia] = useState([]);
+  const [media, SetMedia] = useState();
   const [like, setLike] = useState(null);
   const [postId, setPostId] = useState("");
   const [loading, setLoading] = useState(true);
@@ -30,7 +30,7 @@ export default function Post() {
       if (res.data) {
         setTimeout(() => {
           setLoading(false);
-        }, 3000);
+        }, 1000);
       }
       SetMedia(res.data);
     };

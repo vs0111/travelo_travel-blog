@@ -40,12 +40,15 @@ export default function Profile() {
     setFileShow(false)
   }
 
-//   useEffect(() => { 
-//      axios.get(`blogDetails/${userId}`).then((response) => {
-//          console.log(response.data);
-//          setBlog(response.data);
-//        });
-//   }, [])
+  const handleEditShow = (value)=>{
+    setShow(value)
+  }
+
+  const handleEditProfilePic = (value)=>{
+    setFileShow(value)
+  }
+
+
 
 
  
@@ -154,7 +157,7 @@ export default function Profile() {
           <ModalTitle>EDIT PROFILE</ModalTitle>
         </ModalHeader>
         <ModalBody>
-          <EditProfile  />
+          <EditProfile handleEditShow={handleEditShow}  />
         </ModalBody>
         <ModalFooter>
           <Button variant="secondary" onClick={handleClose}>
@@ -168,7 +171,7 @@ export default function Profile() {
           <ModalTitle>EDIT PROFILE</ModalTitle>
         </ModalHeader>
         <ModalBody>
-          <EditPic/>
+          <EditPic handleEditProfilePic={handleEditProfilePic}/>
         </ModalBody>
         <ModalFooter>
           <Button variant="secondary" onClick={handleImgClose}>

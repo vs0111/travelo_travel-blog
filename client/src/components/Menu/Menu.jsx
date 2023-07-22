@@ -2,13 +2,13 @@ import React from 'react';
 import './menu.css';
 import { Link, useNavigate } from 'react-router-dom';
 
-function Menu({ menuBlog }) {
+function Menu({ menuBlog,handleBlogClick}) {
   const navigate = useNavigate();
 
-  const handleBlogClick = (blogId) => {
-    navigate(`/singlePost/${blogId}`);
-    window.location.reload()
-  };
+  // const handleBlogClick = (blogId) => {
+  //   navigate(`/singlePost/${blogId}`);
+  //   window.location.reload()
+  // };
 
   return (
     <div className="menus">

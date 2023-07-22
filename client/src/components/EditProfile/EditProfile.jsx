@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { setUser } from "../../Redux/store";
 import { useNavigate } from "react-router-dom";
 
-function EditProfile() {
+function EditProfile({handleEditShow}) {
   const [editedFormData, setEditedFormData] = useState({
     name: "",
     email: "",
@@ -36,7 +36,7 @@ function EditProfile() {
         dispatch(setUser({ user: response.data.updatedUser }));
         toast.success("Profile Updated Successfully");
         setTimeout(() => {
-         window.location.reload()
+          handleEditShow(false)
         }, 1000);
       });
   };

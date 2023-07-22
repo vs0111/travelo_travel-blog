@@ -1,7 +1,6 @@
 import React, { useState,useEffect } from "react";
 import "./blog.css";
 import { Container, Row } from "reactstrap";
-// import LatestBlog from "../../components/LatestBlog/LatestBlog";
 import axios from '../../utils/axios'
 import FullBlog from "../../components/FullBlog";
 
